@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+  <title>Thermostat HTML</title>
+  <script type="text/javascript" src="/Thermostat.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"> </script>
+  <link rel="stylesheet" type="text/css" href="/style/style.css">
+</head>
+  <body>
+    <center><div class='rcornerbox'>
+      <h1 class="yellow" id='current_temperature'>
+      </h1>
+      <div>
+        <center>
+        <input type='submit' value='-' id='down_button' class='button'/>
+        <input type='submit' value='+' id='up_button' class='button'/>
+        <input type='submit' value='reset' id='reset' class='button'/>
+        </center>
+      </div>
+        <div class="text">PowerSave</div>
+        <div class="onoffswitch">
+          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+          <label class="onoffswitch-label" for="myonoffswitch">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+    </div>
+    <select id='select'>
+      <option value = "london">London</option>
+      <option value = "newyork">New York</option>
+      <option value = "istanbul">Istanbul</option>
+      <option value = "sydney">Sydney</option>
+    </select>
+    <div id="weatherWidget" class="text">
+    </div></center>
+<script type="text/javascript" src="/app.js"></script>
+  </body>
+</html>
