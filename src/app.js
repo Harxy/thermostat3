@@ -1,5 +1,6 @@
 var thermostat = new Thermostat();
 UpdateThermo();
+getWeatherForCity($('#select').val());
 
 $('#up_button').click(function() {
   thermostat.increaseTemperature();
@@ -21,6 +22,10 @@ $('#myonoffswitch').click(function() {
   UpdateThermo();
 });
 
+$('#select').change(function() {
+  getWeatherForCity($( this ).val());
+});
+
 function changeColour() {
   if (thermostat.colour == 'green') {
     $('#current_temperature').removeClass().addClass('green');
@@ -36,11 +41,10 @@ function changeColour() {
 function UpdateThermo(){
   $('#current_temperature').html(thermostat.temperature + '°c');
   changeColour();
-  getWeather();
 };
 
-function getWeather(){
-        var url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=a1151fe1a04efc268bb7ee2de474340a&units=metric';
+function getWeatherForCity(city){
+        var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=a1151fe1a04efc268bb7ee2de474340a&units=metric';
         var response = $.get(url).done(function() {
           var data = response.responseJSON.main.temp;
           $("#weatherWidget").html(data);
